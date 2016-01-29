@@ -7,6 +7,8 @@
 -- 伺服器版本: 5.5.46-0ubuntu0.14.04.2
 -- PHP 版本: 5.5.30-1+deb.sury.org~precise+1
 
+CREATE DATABASE dataScience;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
