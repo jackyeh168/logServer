@@ -5,18 +5,7 @@ var connection = mysql.createConnection({
   password : 'password',
   database : 'dataScience'
 });
-/*connection.connect(function(conn, cb) {
-                conn.query('CREATE TABLE IF NOT EXISTS `used_record` ( 
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) NOT NULL,
-  `course` varchar(64) NOT NULL,
-  `version` varchar(16) NOT NULL,
-  `type` tinyint(1) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;', cb);
-    }, cb);
-*/
+
 module.exports =  {
 	insertRecord: function ( req ){
 		connection.query('INSERT INTO used_record set ?', {
@@ -28,5 +17,17 @@ module.exports =  {
 		  if (err) //throw err;
 			console.log('The err is: ', err);
 		});
+	},
+	
+	getManyRecords: function ( req, callback ){
+		connection.query('SELECT * from used_record order by id desc limit '+req.body.num, 
+			callback
+		);
+	},
+	
+	getRecordsByUserId: function ( req, callback ){
+		connection.query('SELECT * from used_record where user_id = "' + req.body.user_id + '"', 
+			callback
+		);
 	},
 }
