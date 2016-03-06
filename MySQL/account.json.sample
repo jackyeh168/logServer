@@ -1,7 +1,7 @@
 {
-  connectionLimit: 10,
-  host     : 'localhost',
-  user     : 'admin',
-  password : 'password',
-  database : 'dataScience'
+  "connectionLimit": 10,
+  "host"     : "localhost",
+  "user"     : "admin",
+  "password" : "password",
+  "database" : "dataScience"
 }
